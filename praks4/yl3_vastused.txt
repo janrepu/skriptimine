@@ -1,0 +1,7 @@
+Ulesanne 3 analuus:
+
+Kui valik on "1": esimene if [ $osch -eq 1 ] on tode, kaivitub kohe "You Pick up Unix (Sun Os)". Sisemist if-i ei kontrollitagi.
+
+Kui valik on "2": valimine tingimus on vaar, minnakse else harusse, kus sisemine if [ $osch -eq 2 ] on tode ja valjastatakse "You Pick up Linux (Red Hat)".
+
+Muud valikud (nt 3, tuhi): molemad tingimused on vaarad, kaivitub sisemise if-i else, valjastades "What you don't like Unix/Linux OS." Muid vaartusi saab tehniliselt sisestada, aga skript kasitleb koiki uhtemoodi.
