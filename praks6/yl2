@@ -1,0 +1,17 @@
+#!/bin/bash
+# yl2 - arvutab sisestatud täisarvu numbrite summa (while-tsükliga)
+read -p "Sisesta suvaline täisarv: " arv
+if ! [[ $arv =~ ^-?[0-9]+$ ]]; then
+    echo "Viga: $arv ei ole täisarv"
+    exit 1
+fi
+n=$(( 10#${arv#-} ))
+summa=0
+while (( n > 0 )); do
+    summa=$(( summa + n % 10 ))
+    n=$(( n / 10 ))
+done
+if [[ $arv == -* ]]; then
+    summa=$(( -summa ))
+fi
+echo "Arvu $arv numbrite summa on $summa"
