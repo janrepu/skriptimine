@@ -1,0 +1,24 @@
+#!/bin/bash
+# yl3 - väljastab tärnidest raami (esimene ja viimane rida täis, keskel ainult servad)
+read -p "Sisesta ridade arv: " ridu
+if ! [[ $ridu =~ ^[1-9][0-9]*$ ]]; then
+    echo "Viga: sisesta positiivne täisarv"
+    exit 1
+fi
+read -p "Sisesta tärnide arv reas: " tarne
+if ! [[ $tarne =~ ^[1-9][0-9]*$ ]]; then
+    echo "Viga: sisesta positiivne täisarv"
+    exit 1
+fi
+echo ""
+for (( i=1; i<=ridu; i++ )); do
+    echo -n "$i. "
+    for (( j=1; j<=tarne; j++ )); do
+        if (( i == 1 || i == ridu || j == 1 || j == tarne )); then
+            echo -n "* "
+        else
+            echo -n "  "
+        fi
+    done
+    echo ""
+done
