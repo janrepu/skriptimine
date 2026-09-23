@@ -1,0 +1,15 @@
+#!/bin/bash
+# yl4 - väljastab kolmnurga: igas reas nii palju tärne kui on rea number
+read -p "Sisesta ridade arv: " ridu
+if ! [[ $ridu =~ ^[1-9][0-9]*$ ]]; then
+    echo "Viga: sisesta positiivne täisarv"
+    exit 1
+fi
+echo ""
+for (( i=1; i<=ridu; i++ )); do
+    echo -n "$i. "
+    for (( j=1; j<=i; j++ )); do
+        echo -n "* "
+    done
+    echo ""
+done
