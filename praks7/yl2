@@ -1,0 +1,20 @@
+#!/bin/bash
+# yl2 - väljastab kasutaja määratud ridade ja tärnide arvuga kujundi
+read -p "Sisesta ridade arv: " ridu
+if ! [[ $ridu =~ ^[1-9][0-9]*$ ]]; then
+    echo "Viga: sisesta positiivne täisarv"
+    exit 1
+fi
+read -p "Sisesta tärnide arv reas: " tarne
+if ! [[ $tarne =~ ^[1-9][0-9]*$ ]]; then
+    echo "Viga: sisesta positiivne täisarv"
+    exit 1
+fi
+echo ""
+for (( i=1; i<=ridu; i++ )); do
+    echo -n "$i. "
+    for (( j=1; j<=tarne; j++ )); do
+        echo -n "* "
+    done
+    echo ""
+done
