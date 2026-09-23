@@ -1,0 +1,20 @@
+#!/bin/bash
+# yl3 - väljastab kuu nimetuse sisestatud kuu numbri järgi (case)
+read -p "Sisesta kuu number: " kuu
+case $kuu in
+    1|01) nimi="jaanuar";;
+    2|02) nimi="veebruar";;
+    3|03) nimi="märts";;
+    4|04) nimi="aprill";;
+    5|05) nimi="mai";;
+    6|06) nimi="juuni";;
+    7|07) nimi="juuli";;
+    8|08) nimi="august";;
+    9|09) nimi="september";;
+    10) nimi="oktoober";;
+    11) nimi="november";;
+    12) nimi="detsember";;
+    *) echo "Viga: $kuu ei ole korrektne kuu number (lubatud 1-12)"
+       exit 1;;
+esac
+echo "See on $nimi"
