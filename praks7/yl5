@@ -1,0 +1,19 @@
+#!/bin/bash
+# yl5 - väljastab paremale joondatud kolmnurga (o-tähed ja tärnid)
+read -p "Sisesta ridade arv: " ridu
+if ! [[ $ridu =~ ^[1-9][0-9]*$ ]]; then
+    echo "Viga: sisesta positiivne täisarv"
+    exit 1
+fi
+echo ""
+for (( i=1; i<=ridu; i++ )); do
+    echo -n "$i. "
+    for (( j=1; j<=ridu; j++ )); do
+        if (( j <= ridu - i )); then
+            echo -n "o "
+        else
+            echo -n "* "
+        fi
+    done
+    echo ""
+done
