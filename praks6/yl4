@@ -1,0 +1,33 @@
+#!/bin/bash
+# yl4 - kontrollib, kas arv on algarv (while-tsükkel)
+# täiendus: kontrollib ka 20 esimest täisarvu
+
+kontrolli() {
+    local arv=$1
+    if (( arv < 2 )); then
+        echo "$arv - ei ole algarv"
+        return
+    fi
+    local jagaja=2
+    while (( arv % jagaja != 0 )); do
+        jagaja=$(( jagaja + 1 ))
+    done
+    if (( jagaja == arv )); then
+        echo "$arv - on algarv"
+    else
+        echo "$arv - ei ole algarv"
+    fi
+}
+
+read -p "Sisesta suvaline arv: " arv
+if ! [[ $arv =~ ^[0-9]+$ ]]; then
+    echo "Viga: sisesta positiivne täisarv"
+    exit 1
+fi
+kontrolli $arv
+
+echo
+echo "20 esimese täisarvu kontroll:"
+for i in {1..20}; do
+    kontrolli $i
+done
